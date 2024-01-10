@@ -54,18 +54,18 @@ function rot13(str) {
 /* CharCode Version */
 const ROTATE = 13;
 
-function rot13Code(str) {
+function decodeCipher(str, rotate, lowerAlpha, upprerAlpha) {
 	let decodedStr = "";
 
 	for (let i = 0; i < str.length; i++) {
 		const char = str[i];
 		const charCode = str.charCodeAt(i);
 
-		if (/[A-M]/.test(char)) {
-			const decodedChar = charCode + ROTATE;
+		if (lowerAlpha.test(char)) {
+			const decodedChar = charCode + rotate;
 			decodedStr += String.fromCharCode(decodedChar);
-		} else if (/[N-Z]/.test(char)) {
-			const decodedChar = charCode - ROTATE;
+		} else if (upprerAlpha.test(char)) {
+			const decodedChar = charCode - rotate;
 			decodedStr += String.fromCharCode(decodedChar);
 		} else {
 			decodedStr += char;
@@ -75,5 +75,7 @@ function rot13Code(str) {
 	return decodedStr;
 }
 
-console.log(rot13Code("SERR PBQR PNZC"));
+console.log(decodeCipher("SERR PBQR PNZC", ROTATE, /[A-M]/, /[N-Z]/));
+
+// console.log(decodeCipher("SERR PBQR PNZC"));
 // rot13("SERR PBQR PNZC");
