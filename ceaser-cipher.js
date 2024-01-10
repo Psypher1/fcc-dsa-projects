@@ -38,10 +38,10 @@ function rot13(str) {
 	for (let i = 0; i < str.length; i++) {
 		// decodedStr += str[i];
 		// if char is a letter, add decoded letter
-		if (str[i] === "A") {
+		if (/[A-Z]/.test(str[i])) {
 			// decode letter
 			// add decoded letter to string
-			decodedStr += "N";
+			decodedStr += CHAR_MAP[str[i]];
 		} else {
 			// else add char as is
 			decodedStr += str[i];
@@ -50,5 +50,5 @@ function rot13(str) {
 
 	return decodedStr;
 }
-console.log(rot13("A"));
+console.log(rot13("SERR PBQR PNZC"));
 // rot13("SERR PBQR PNZC");
