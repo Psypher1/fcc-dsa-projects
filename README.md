@@ -6,3 +6,4 @@
 2. [Roman Numeral Converter](roman-numeral)
 3. [Ceasar Cipher](ceasar-cipher)
 4. [Telephone Number Validator](telephone)
+5. [Cash Register](cash-register)
